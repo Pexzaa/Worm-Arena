@@ -14,11 +14,16 @@
   <main class="app-shell">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Arcade Web Game</p>
+        <p class="eyebrow">Browser .io Style Arena</p>
         <h1>Worm Arena</h1>
         <p class="subtitle">
-          คุมหนอนให้ไล่กินอาหาร หลบกำแพง ระวังชนตัวเอง แล้วโตให้ยาวที่สุดเท่าที่จะทำได้
+          ล่ากินอาหารในสนามใหญ่ หลบหนอนบอทหลายตัว และเอาตัวรอดให้นานพอจะเป็นตัวที่ยาวที่สุดในแมตช์
         </p>
+        <div class="hero-pills">
+          <span class="pill">6 AI Worms</span>
+          <span class="pill">Large Map + Camera</span>
+          <span class="pill">Swipe Friendly</span>
+        </div>
       </div>
 
       <div class="hud-card">
@@ -32,36 +37,67 @@
         </div>
         <div class="stat">
           <span class="label">Length</span>
-          <strong id="length">3</strong>
+          <strong id="length">4</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Rank</span>
+          <strong id="rank">1/7</strong>
         </div>
       </div>
     </section>
 
     <section class="game-panel">
       <div class="canvas-frame">
-        <canvas id="game" width="720" height="720" aria-label="เกมหนอน"></canvas>
+        <canvas id="game" width="720" height="720" aria-label="เกม Worm Arena"></canvas>
+
+        <div class="floating-badges">
+          <div class="badge">
+            <span>Alive Bots</span>
+            <strong id="alive-bots">6</strong>
+          </div>
+          <div class="badge">
+            <span>Food</span>
+            <strong id="food-count">45</strong>
+          </div>
+        </div>
+
         <div class="overlay" id="overlay">
           <div class="overlay-card">
-            <p class="overlay-kicker" id="overlay-kicker">พร้อมลุย</p>
-            <h2 id="overlay-title">กดเริ่มเกม</h2>
-            <p id="overlay-text">ใช้ปุ่มลูกศรหรือ WASD เพื่อควบคุมหนอนของคุณ</p>
-            <button id="start-button" type="button">เริ่ม / เล่นใหม่</button>
+            <p class="overlay-kicker" id="overlay-kicker">Arena Ready</p>
+            <h2 id="overlay-title">เริ่มล่าคะแนน</h2>
+            <p id="overlay-text">
+              ใช้ WASD, ปุ่มลูกศร, ปุ่มสัมผัส หรือปัดนิ้วบนสนามเพื่อคุมหนอนของคุณ
+            </p>
+            <div class="overlay-features">
+              <span>สนามใหญ่กว่าเดิม</span>
+              <span>บอทหลายตัว</span>
+              <span>อาหารกระจายทั้งแผนที่</span>
+            </div>
+            <button id="start-button" type="button">เริ่มเกม</button>
           </div>
         </div>
       </div>
 
       <aside class="instructions">
-        <div class="chip-row">
-          <span class="chip">WASD</span>
-          <span class="chip">Arrow Keys</span>
-          <span class="chip">Touch Buttons</span>
+        <div class="mini-panel">
+          <h3>วิธีเล่น</h3>
+          <ul>
+            <li>กินอาหารสีสว่างเพื่อเพิ่มความยาวและคะแนน</li>
+            <li>กล้องจะตามหัวหนอนของคุณตลอดเวลา</li>
+            <li>ชนกำแพง ชนตัวเอง หรือชนลำตัวหนอนตัวอื่น เกมจบทันที</li>
+            <li>ถ้าบอทตาย มันจะทิ้งอาหารไว้ให้เก็บต่อ</li>
+          </ul>
         </div>
 
-        <ul>
-          <li>เก็บอาหารเรืองแสงเพื่อเพิ่มคะแนนและทำให้ตัวหนอนยาวขึ้น</li>
-          <li>ความเร็วจะเพิ่มเล็กน้อยเมื่อคุณกินอาหารมากขึ้น</li>
-          <li>ชนขอบฉากหรือชนตัวเองเมื่อไร เกมจบทันที</li>
-        </ul>
+        <div class="mini-panel">
+          <h3>ควบคุม</h3>
+          <div class="chip-row">
+            <span class="chip">WASD</span>
+            <span class="chip">Arrow Keys</span>
+            <span class="chip">Swipe</span>
+          </div>
+          <p class="helper-text">บนมือถือคุณแตะปุ่มทิศทางหรือปัดบนฉากเกมก็ได้</p>
+        </div>
 
         <div class="touch-controls">
           <button class="touch-btn" data-dir="up" type="button">▲</button>
