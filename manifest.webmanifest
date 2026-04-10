@@ -1,0 +1,10 @@
+{
+  "name": "Worm Arena",
+  "short_name": "Worm Arena",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08131c",
+  "theme_color": "#08131c",
+  "description": "เกมหนอนบนเว็บ กดลิงก์แล้วเล่นได้ทั้งมือถือและคอมพิวเตอร์",
+  "icons": []
+}

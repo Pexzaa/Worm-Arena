@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08131c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Worm Arena</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Arcade Web Game</p>
+        <h1>Worm Arena</h1>
+        <p class="subtitle">
+          คุมหนอนให้ไล่กินอาหาร หลบกำแพง ระวังชนตัวเอง แล้วโตให้ยาวที่สุดเท่าที่จะทำได้
+        </p>
+      </div>
+
+      <div class="hud-card">
+        <div class="stat">
+          <span class="label">Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Best</span>
+          <strong id="best-score">0</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Length</span>
+          <strong id="length">3</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-panel">
+      <div class="canvas-frame">
+        <canvas id="game" width="720" height="720" aria-label="เกมหนอน"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="overlay-card">
+            <p class="overlay-kicker" id="overlay-kicker">พร้อมลุย</p>
+            <h2 id="overlay-title">กดเริ่มเกม</h2>
+            <p id="overlay-text">ใช้ปุ่มลูกศรหรือ WASD เพื่อควบคุมหนอนของคุณ</p>
+            <button id="start-button" type="button">เริ่ม / เล่นใหม่</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="instructions">
+        <div class="chip-row">
+          <span class="chip">WASD</span>
+          <span class="chip">Arrow Keys</span>
+          <span class="chip">Touch Buttons</span>
+        </div>
+
+        <ul>
+          <li>เก็บอาหารเรืองแสงเพื่อเพิ่มคะแนนและทำให้ตัวหนอนยาวขึ้น</li>
+          <li>ความเร็วจะเพิ่มเล็กน้อยเมื่อคุณกินอาหารมากขึ้น</li>
+          <li>ชนขอบฉากหรือชนตัวเองเมื่อไร เกมจบทันที</li>
+        </ul>
+
+        <div class="touch-controls">
+          <button class="touch-btn" data-dir="up" type="button">▲</button>
+          <div class="touch-row">
+            <button class="touch-btn" data-dir="left" type="button">◀</button>
+            <button class="touch-btn touch-btn--primary" data-dir="down" type="button">▼</button>
+            <button class="touch-btn" data-dir="right" type="button">▶</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
