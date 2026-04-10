@@ -1,96 +1,125 @@
 :root {
-  --bg: #08131c;
-  --bg-soft: #122434;
-  --panel: rgba(7, 18, 28, 0.82);
-  --line: rgba(170, 230, 255, 0.2);
-  --text: #f2f6f8;
-  --muted: #b9c7d4;
-  --accent: #7bf1a8;
-  --accent-strong: #2ce38e;
-  --danger: #ff7272;
-  --glow: #6fdfff;
+  --bg: #071119;
+  --panel: rgba(7, 17, 25, 0.78);
+  --panel-strong: rgba(10, 24, 36, 0.92);
+  --line: rgba(143, 227, 255, 0.18);
+  --text: #f4f7fb;
+  --muted: #b4c5d5;
+  --accent: #8cf39d;
+  --accent-strong: #25d68a;
+  --sky: #7ad4ff;
+  --warning: #ffb36a;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100%;
+}
+
+body {
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top, rgba(79, 182, 255, 0.18), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(123, 241, 168, 0.18), transparent 25%),
-    linear-gradient(135deg, #071018, #0b1f2f 55%, #091722);
+    radial-gradient(circle at top left, rgba(122, 212, 255, 0.14), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(140, 243, 157, 0.12), transparent 28%),
+    linear-gradient(145deg, #041018, #071521 48%, #0b1d2c);
 }
 
 .app-shell {
-  width: min(1200px, calc(100% - 32px));
+  width: min(1240px, calc(100% - 24px));
   margin: 0 auto;
-  padding: 32px 0 40px;
+  padding: 24px 0 36px;
 }
 
 .hero {
   display: flex;
-  justify-content: space-between;
   align-items: end;
+  justify-content: space-between;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .eyebrow {
   margin: 0 0 10px;
   color: var(--accent);
-  font-weight: 600;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(2.5rem, 5vw, 4.8rem);
-  line-height: 0.95;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 0.92;
 }
 
 .subtitle {
-  max-width: 720px;
-  margin: 12px 0 0;
+  max-width: 700px;
+  margin: 14px 0 0;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 1.04rem;
+  line-height: 1.6;
+}
+
+.hero-pills,
+.chip-row,
+.overlay-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-pills {
+  margin-top: 18px;
+}
+
+.pill,
+.chip,
+.overlay-features span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .hud-card,
 .instructions,
-.overlay-card {
-  backdrop-filter: blur(18px);
-  background: var(--panel);
+.overlay-card,
+.badge,
+.mini-panel {
   border: 1px solid var(--line);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
 .hud-card {
-  min-width: 260px;
+  min-width: 320px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   padding: 16px;
-  border-radius: 24px;
+  border-radius: 26px;
 }
 
 .stat {
   padding: 14px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
   text-align: center;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .label {
   display: block;
   margin-bottom: 6px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .stat strong {
@@ -99,29 +128,56 @@ h1 {
 
 .game-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-columns: minmax(0, 1fr) 320px;
   gap: 24px;
   align-items: start;
 }
 
 .canvas-frame {
   position: relative;
-  border-radius: 30px;
   overflow: hidden;
+  border-radius: 30px;
   border: 1px solid var(--line);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 26px 90px rgba(0, 0, 0, 0.34);
+  background: linear-gradient(180deg, #08131c, #061019);
 }
 
 canvas {
   display: block;
   width: 100%;
   height: auto;
+  touch-action: none;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    radial-gradient(circle at center, rgba(81, 175, 255, 0.08), transparent 60%),
-    linear-gradient(180deg, #0a1824, #08111a);
-  background-size: 30px 30px, 30px 30px, auto, auto;
+    radial-gradient(circle at center, rgba(89, 174, 255, 0.12), transparent 55%),
+    linear-gradient(180deg, #08141d, #07111a);
+}
+
+.floating-badges {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.badge {
+  min-width: 110px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: rgba(6, 16, 25, 0.72);
+}
+
+.badge span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.badge strong {
+  font-size: 1.2rem;
 }
 
 .overlay {
@@ -129,8 +185,10 @@ canvas {
   inset: 0;
   display: grid;
   place-items: center;
-  padding: 24px;
-  background: rgba(3, 9, 15, 0.35);
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(4, 13, 19, 0.28), rgba(4, 13, 19, 0.56)),
+    radial-gradient(circle at top, rgba(122, 212, 255, 0.18), transparent 35%);
 }
 
 .overlay.hidden {
@@ -138,28 +196,36 @@ canvas {
 }
 
 .overlay-card {
-  width: min(100%, 380px);
-  padding: 26px;
-  border-radius: 26px;
+  width: min(100%, 430px);
+  padding: 28px;
+  border-radius: 28px;
   text-align: center;
+  background: var(--panel-strong);
 }
 
 .overlay-kicker {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   color: var(--accent);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-size: 0.78rem;
+  font-weight: 700;
 }
 
 .overlay-card h2 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.1rem;
 }
 
 .overlay-card p {
   margin: 12px 0 18px;
   color: var(--muted);
+  line-height: 1.6;
+}
+
+.overlay-features {
+  justify-content: center;
+  margin-bottom: 18px;
 }
 
 button {
@@ -171,53 +237,63 @@ button {
 .touch-btn {
   border: 0;
   border-radius: 18px;
-  color: #02110a;
+  color: #03140c;
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  box-shadow: 0 12px 26px rgba(44, 227, 142, 0.28);
-  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+  box-shadow: 0 12px 26px rgba(37, 214, 138, 0.3);
+  transition: transform 120ms ease, filter 120ms ease;
 }
 
 #start-button {
-  padding: 12px 22px;
-  font-weight: 700;
+  padding: 13px 22px;
+  font-weight: 800;
 }
 
 #start-button:hover,
 .touch-btn:hover {
   transform: translateY(-1px);
-  filter: brightness(1.04);
+  filter: brightness(1.05);
 }
 
 .instructions {
-  padding: 20px;
+  padding: 18px;
   border-radius: 28px;
 }
 
-.instructions ul {
+.mini-panel {
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.mini-panel + .mini-panel {
+  margin-top: 14px;
+}
+
+.mini-panel h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.mini-panel ul {
   margin: 0;
-  padding-left: 20px;
+  padding-left: 18px;
   color: var(--muted);
   line-height: 1.65;
 }
 
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-.chip {
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.03);
+.helper-text {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .touch-controls {
   display: none;
-  margin-top: 24px;
+  margin-top: 16px;
+}
+
+.touch-controls > .touch-btn {
+  width: 100%;
 }
 
 .touch-row {
@@ -228,50 +304,69 @@ button {
 }
 
 .touch-btn {
-  min-height: 58px;
-  padding: 0 18px;
-  font-size: 1.2rem;
-  font-weight: 700;
+  min-height: 62px;
+  font-size: 1.28rem;
+  font-weight: 800;
 }
 
 .touch-btn--primary {
-  background: linear-gradient(135deg, #70d4ff, #7bf1a8);
+  background: linear-gradient(135deg, var(--sky), var(--accent));
 }
 
-@media (max-width: 960px) {
+@media (max-width: 980px) {
   .hero,
   .game-panel {
-    grid-template-columns: 1fr;
     display: grid;
+    grid-template-columns: 1fr;
   }
 
   .hud-card {
     min-width: unset;
   }
-
-  .instructions {
-    order: -1;
-  }
 }
 
 @media (max-width: 720px) {
   .app-shell {
-    width: min(100% - 20px, 1200px);
-    padding-top: 20px;
+    width: min(100% - 16px, 1240px);
+    padding-top: 16px;
+  }
+
+  .subtitle {
+    font-size: 0.98rem;
   }
 
   .hud-card {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 12px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 10px;
   }
 
   .stat {
-    padding: 12px 8px;
+    padding: 10px 6px;
+    border-radius: 16px;
   }
 
   .stat strong {
-    font-size: 1.3rem;
+    font-size: 1.08rem;
+  }
+
+  .label {
+    font-size: 0.72rem;
+  }
+
+  .floating-badges {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .badge {
+    min-width: 96px;
+    padding: 8px 10px;
+  }
+
+  .instructions {
+    padding: 14px;
   }
 
   .touch-controls {
